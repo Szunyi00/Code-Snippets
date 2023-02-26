@@ -1,4 +1,5 @@
 'INVOKE CODE ACTIVITY (LANGUAGE: VBNet)
+'DEPENDENCIES: iTextSharp 5.5.13.3
 'IMPORTS TAB: iTextSharp.text, iTextSharp.text.pdf, System.IO
 
 '---------------------------------------------------------------
