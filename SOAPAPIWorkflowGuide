@@ -1,0 +1,29 @@
+Dim soapenv As XNamespace = "http://schemas.xmlsoap.org/soap/envelope/"
+Dim sch As XNamespace = "http://www.oorsprong.org/websamples.countryinfo"
+
+'Generate Sch schema get command
+
+Dim SchLOCNBC As XElement = New XElement(sch+"ListOfCountryNamesByCode")
+
+'Generate Header
+
+Dim Header As XElement = New XElement(soapenv+"Header")
+
+'Generate Body
+
+Dim Bdy As XElement = New XElement(soapenv+"Body",SchLOCNBC)
+
+'Generate Envelope
+
+Dim XmlnsSch As XAttribute = New XAttribute(XNamespace.Xmlns+"sch",sch.NamespaceName)
+Dim XmlnsSoapenv As XAttribute = New XAttribute(XNamespace.Xmlns+"soapenv",soapenv.NamespaceName)
+Dim Envelope As XElement = New XElement(soapenv+"Envelope",XmlnsSch,XmlnsSoapenv,Bdy)
+
+Body = Envelope.ToString
+
+'-----------------------------------------------------------
+
+Dim soap As XNamespace = "http://schemas.xmlsoap.org/soap/envelope/"
+Dim m As XNamespace = "http://www.oorsprong.org/websamples.countryinfo"
+
+ListOfCountriesResponse = ResultXMLDoc.Element(soap+"Envelope").Element(soap+"Body").Element(m+"ListOfCountryNamesByCodeResponse").Element(m+"ListOfCountryNamesByCodeResult")
