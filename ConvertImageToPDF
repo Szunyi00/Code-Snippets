@@ -1,0 +1,23 @@
+'INVOKE CODE ACTIVITY (LANGUAGE: VBNet)
+'IMPORTS TAB: iTextSharp.text, iTextSharp.text.pdf, System.IO
+
+'---------------------------------------------------------------
+
+'Dim imageFilePath As String
+'Dim pdfFilePath As String
+
+' Create a new PDF document
+Dim document As New Document()
+
+' Create a new PDF writer  
+Dim writer As PdfWriter = PdfWriter.GetInstance(document, New FileStream(pdfFilePath, FileMode.Create))
+
+' Open the document
+document.Open()
+
+' Add the image to the PDF document
+Dim image As iTextSharp.text.Image = Image.GetInstance(imageFilePath)
+	document.Add(image)
+	
+' Close the document    
+document.Close()
