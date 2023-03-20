@@ -1,0 +1,6 @@
+/// Order by 2 columns
+
+(From d In dtInput.AsEnumerable
+Group d By k=d(0).toString.Trim Into grp = Group 
+Let go = grp.OrderBy(Function (x) CDate(x(1).toString.Trim).Date).ThenBy(Function (y) CDate(d(2).ToString.Trim).TimeOfDay)
+Select r = go.Last()).CopyToDataTable
